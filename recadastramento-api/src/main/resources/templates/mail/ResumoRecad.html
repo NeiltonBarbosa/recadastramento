@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  lang="pt"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Confirmação de Recadastramento</title>
+    
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-size: 14px;
+        color: #333;
+        font-family: "Roboto", monospace, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .grid-element {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .grid-element > label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Prezado <b>[[${servidor.nome}]]</b>,</p>
+    <p>
+      Segue abaixo os dados que você informou através do Formulário de
+      Recadastramento do SIAFEM, em [[${servidor.dataHoraAtualizacaoFormatada}]].
+    </p>
+
+    <div class="grid">
+      <div class="grid-element">
+        <label>CPF</label>
+        <span>[[${servidor.cpf}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Nome</label>
+        <span>[[${servidor.nome}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>RG</label>
+        <span
+          >[[${servidor.rg}]]
+          [[${servidor.orgaoEmissor}]]/[[${servidor.ufEmissor}]]</span
+        >
+      </div>
+
+      <div class="grid-element">
+        <label>E-mail</label>
+        <span>[[${servidor.email}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Telefone corporativo</label>
+        <span>[[${servidor.telefoneCorporativo}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Telefone celular</label>
+        <span>[[${servidor.telefoneCelular}]]</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="grid-element">
+        <label>CEP</label>
+        <span>[[${servidor.endereco.cep}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Logradouro</label>
+        <span>[[${servidor.endereco.logradouro}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Nº</label>
+        <span>[[${servidor.endereco.numero}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Complemento</label>
+        <span>[[${servidor.endereco.complemento}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Bairro</label>
+        <span>[[${servidor.endereco.bairro}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Cidade/UF</label>
+        <span
+          >[[${servidor.endereco.localidade}]]/[[${servidor.endereco.uf}]]</span
+        >
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="grid-element">
+        <label>Matricula</label>
+        <span>[[${servidor.funcional.matricula}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Classificação</label>
+        <span>[[${servidor.funcional.classificacao.descricao}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Ano de nomeação</label>
+        <span>[[${servidor.funcional.anoNomeacao}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Cargo</label>
+        <span>[[${servidor.funcional.cargo.nome}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Nível escolar</label>
+        <span>[[${servidor.funcional.nivelEscolar.descricao}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>Formação</label>
+        <span>[[${servidor.funcional.formacao.nome}]]</span>
+      </div>
+
+      <div class="grid-element">
+        <label>UG de origem</label>
+        <span
+          >[[${servidor.funcional.unidadeGestoraOrigem.codigoUg}]] -
+          [[${servidor.funcional.unidadeGestoraOrigem.nome}]]</span
+        >
+      </div>
+
+      <div class="grid-element">
+        <label>UG atual</label>
+        <span
+          >[[${servidor.funcional.unidadeGestoraAtual.codigoUg}]] -
+          [[${servidor.funcional.unidadeGestoraAtual.nome}]]</span
+        >
+      </div>
+    </div>
+
+    <p>E-mail enviado de forma automática. Por favor não responder.</p>
+  </body>
+</html>
